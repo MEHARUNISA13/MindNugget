@@ -1,0 +1,204 @@
+.showcase {
+    background: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+.showcaseHeader {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(79, 70, 229, 0.1);
+    border: 1px solid rgba(79, 70, 229, 0.3);
+    border-radius: 2rem;
+    color: var(--accent-blue);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.badgeDot {
+    width: 8px;
+    height: 8px;
+    background: var(--gradient-start);
+    border-radius: 50%;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.showcaseHeader h2 {
+    margin-bottom: 1rem;
+}
+
+.showcaseHeader p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+}
+
+.showcaseContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Phone Display */
+.phoneDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.phoneFrame {
+    width: 320px;
+    height: 650px;
+    background: linear-gradient(135deg, #2a3142, #1e2433);
+    border-radius: 3rem;
+    padding: 0.75rem;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    border: 10px solid #2a3142;
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+}
+
+.phoneNotch {
+    position: absolute;
+    top: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #1e2433;
+    border-radius: 0 0 1rem 1rem;
+    z-index: 10;
+}
+
+.phoneScreen {
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    border-radius: 2.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.screenImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.screenImage.active {
+    opacity: 1;
+}
+
+/* Screen Selector */
+.screenSelector {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.screenButton {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.screenButton:hover {
+    border-color: var(--gradient-start);
+    transform: translateX(10px);
+}
+
+.screenButton.active {
+    border-color: var(--gradient-start);
+    background: rgba(79, 70, 229, 0.1);
+    box-shadow: var(--shadow-glow);
+}
+
+.screenButtonIcon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 0.75rem;
+    color: white;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.screenButton.active .screenButtonIcon {
+    transform: scale(1.1);
+}
+
+.screenButtonText h4 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.screenButtonText p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .showcaseContent {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .phoneFrame {
+        width: 280px;
+        height: 570px;
+    }
+
+    .screenSelector {
+        order: -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .phoneFrame {
+        width: 250px;
+        height: 510px;
+    }
+
+    .screenButton {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .screenButtonIcon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .screenButtonText h4 {
+        font-size: 1.125rem;
+    }
+}

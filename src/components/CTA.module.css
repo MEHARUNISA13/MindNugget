@@ -1,0 +1,158 @@
+.cta {
+    background: var(--bg-secondary);
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.ctaCard {
+    position: relative;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 2rem;
+    padding: 4rem 3rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.ctaBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+.lottieWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.gradientOrb1,
+.gradientOrb2 {
+    display: none;
+    /* Hide static orbs in favor of Lottie if desired, or keep both. I'll hide static for now. */
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.gradientOrb1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    top: -20%;
+    right: -10%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.gradientOrb2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    bottom: -15%;
+    left: -5%;
+    animation: float 6s ease-in-out infinite reverse;
+}
+
+.ctaContent {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ctaContent h2 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.ctaContent>p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+}
+
+.downloadButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.downloadBtn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.downloadBtn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.downloadBtn svg {
+    flex-shrink: 0;
+}
+
+.downloadBtn div {
+    text-align: left;
+}
+
+.downloadBtn span {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.downloadBtn strong {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.ctaNote {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ctaCard {
+        padding: 3rem 2rem;
+    }
+
+    .downloadButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .downloadBtn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
