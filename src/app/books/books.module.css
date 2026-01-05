@@ -1,0 +1,208 @@
+.booksPage {
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.hero {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
+    padding: 4rem 0 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+.hero h1 {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.searchBar {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.searchBar svg {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.searchBar input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3.5rem;
+    background: rgba(30, 36, 51, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.searchBar input:focus {
+    border-color: var(--gradient-start);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.searchBar input::placeholder {
+    color: var(--text-muted);
+}
+
+.content {
+    padding: 3rem 0;
+}
+
+.filters {
+    margin-bottom: 2.5rem;
+}
+
+.filters h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.categoryTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.categoryTag {
+    padding: 0.6rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.categoryTag:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--gradient-start);
+    color: var(--text-primary);
+}
+
+.categoryTag.active {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-color: transparent;
+    color: white;
+}
+
+.results {
+    margin-top: 2rem;
+}
+
+.resultsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.resultsHeader h2 {
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+.sortSelect {
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.sortSelect:hover {
+    border-color: var(--gradient-start);
+}
+
+.sortSelect:focus {
+    border-color: var(--gradient-start);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.booksGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .booksGrid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .booksPage {
+        padding-top: 70px;
+    }
+
+    .hero {
+        padding: 3rem 0 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .resultsHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .sortSelect {
+        width: 100%;
+    }
+
+    .booksGrid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .booksGrid {
+        grid-template-columns: 1fr;
+    }
+}

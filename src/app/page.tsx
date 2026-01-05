@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
+import PopularBooks from '@/components/PopularBooks';
 import AppShowcase from '@/components/AppShowcase';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
@@ -25,6 +26,7 @@ export default function Home() {
       <main>
         <Hero />
         <Features />
+        <PopularBooks />
         <AppShowcase />
         <Testimonials />
         <FAQ />
