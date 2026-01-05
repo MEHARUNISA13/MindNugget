@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { mockBooks, getBookBySlug, getBooksByCategory } from '@/lib/mockData';
-import AudioPlayer from '@/components/AudioPlayer';
+import PlayButton from '@/components/PlayButton';
 import BookCard from '@/components/BookCard';
+import PopularBooks from '@/components/PopularBooks';
 import styles from './book.module.css';
 import type { Metadata } from 'next';
 
@@ -26,6 +27,27 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
         };
     }
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Book',
+        name: book.title,
+        author: {
+            '@type': 'Person',
+            name: book.author,
+        },
+        description: book.summary.short,
+        isbn: book.isbn,
+        datePublished: book.publishedDate,
+        ...(book.audioUrl && {
+            audio: {
+                '@type': 'AudioObject',
+                contentUrl: book.audioUrl,
+                duration: `PT${Math.floor((book.audioDuration || 0) / 60)}M`,
+                name: `${book.title} Summary Audio`,
+            },
+        }),
+    };
+
     return {
         title: `${book.title} Summary - MindNugget`,
         description: book.summary.short,
@@ -34,6 +56,14 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
             title: `${book.title} by ${book.author} - Summary`,
             description: book.summary.short,
             type: 'article',
+            images: [book.coverImage],
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
+        other: {
+            'script:ld+json': JSON.stringify(jsonLd),
         },
     };
 }
@@ -130,17 +160,17 @@ export default async function BookPage({ params }: BookPageProps) {
                 </div>
             </section>
 
-            {/* Audio Player */}
+            {/* Audio Player Button Section */}
             {book.audioUrl && (
                 <section className={styles.audioSection}>
                     <div className="container">
-                        <h2>Listen to Summary</h2>
-                        <AudioPlayer
-                            audioUrl={book.audioUrl}
-                            title={book.title}
-                            author={book.author}
-                            duration={book.audioDuration}
-                        />
+                        <div className={styles.audioPrompt}>
+                            <div className={styles.promptText}>
+                                <h2>Listen to Summary</h2>
+                                <p>Enhance your learning with our high-quality audio narration.</p>
+                            </div>
+                            <PlayButton book={book} />
+                        </div>
                     </div>
                 </section>
             )}
@@ -203,6 +233,9 @@ export default async function BookPage({ params }: BookPageProps) {
                     </div>
                 </div>
             </section>
+
+            {/* Popular Books Section */}
+            <PopularBooks />
 
             {/* Related Books */}
             {relatedBooks.length > 0 && (

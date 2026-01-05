@@ -12,6 +12,8 @@ export const mockBooks: Book[] = [
         rating: 4.7,
         reviewCount: 15234,
         readTime: 12,
+        audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', // Mock audio
+        audioDuration: 372, // Mock duration
         summary: {
             short: 'Learn the financial lessons Robert Kiyosaki learned from his two dads - his biological father and his best friend\'s father - and how they shaped his perspective on money and investing.',
             full: 'Rich Dad Poor Dad is about Robert Kiyosaki and his two dads—his real father (poor dad) and the father of his best friend (rich dad)—and the ways in which both men shaped his thoughts about money and investing. The book explodes the myth that you need to earn a high income to become rich and explains the difference between working for money and having your money work for you.',
@@ -37,6 +39,8 @@ export const mockBooks: Book[] = [
         rating: 4.8,
         reviewCount: 23451,
         readTime: 15,
+        audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', // Mock audio
+        audioDuration: 420,
         summary: {
             short: 'Discover how tiny changes can lead to remarkable results. James Clear reveals practical strategies for forming good habits, breaking bad ones, and mastering the tiny behaviors that lead to success.',
             full: 'Atomic Habits is a comprehensive guide to changing your habits and getting 1% better every day. James Clear draws on proven ideas from biology, psychology, and neuroscience to create an easy-to-understand guide for making good habits inevitable and bad habits impossible.',

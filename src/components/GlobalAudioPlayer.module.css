@@ -1,0 +1,197 @@
+.playerContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 2rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    color: white;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.playerContainer.hidden {
+    transform: translateY(100%);
+}
+
+.bookInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.coverThumbnail {
+    width: 48px;
+    height: 64px;
+    border-radius: 4px;
+    background: #333;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.details h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.mainControls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.controlBtn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controlBtn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.playBtn {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    color: #000;
+}
+
+.playBtn:hover {
+    background: #f0f0f0;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.progressBarContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+    max-width: 400px;
+}
+
+.time {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-variant-numeric: tabular-nums;
+    min-width: 40px;
+}
+
+.progressRange {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.progressRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.progressRange::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.closeBtn {
+    position: absolute;
+    top: -12px;
+    right: 12px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.closeBtn:hover {
+    background: #333;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .playerContainer {
+        padding: 0.75rem 1rem;
+        gap: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .bookInfo {
+        max-width: none;
+        width: 100%;
+    }
+
+    .controls {
+        width: 100%;
+        max-width: none;
+        flex-direction: column-reverse;
+        gap: 0.75rem;
+    }
+
+    .progressBarContainer {
+        width: 100%;
+        max-width: none;
+    }
+}
